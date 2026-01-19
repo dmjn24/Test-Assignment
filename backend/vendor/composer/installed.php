@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'scandiweb/fullstack',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '1b3501c600b05edb8ec4e07376b7df17e2fab892',
+        'type' => 'project',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'nikic/fast-route' => array(
+            'pretty_version' => 'v1.3.0',
+            'version' => '1.3.0.0',
+            'reference' => '181d480e08d9476e61381e04a71b34dc0432e812',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../nikic/fast-route',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'scandiweb/fullstack' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '1b3501c600b05edb8ec4e07376b7df17e2fab892',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'webonyx/graphql-php' => array(
+            'pretty_version' => 'v15.29.4',
+            'version' => '15.29.4.0',
+            'reference' => '7ae6371184a1909822916ff101eab7e6e070c656',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../webonyx/graphql-php',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);
