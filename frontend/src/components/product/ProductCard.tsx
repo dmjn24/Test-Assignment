@@ -3,6 +3,7 @@ import { useCart } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 import type { Product, AttributeSet } from '../../types';
 import Price from '../common/Price';
+import { FiShoppingCart } from 'react-icons/fi';
 
 
 const getDefaultOptions = (attributes: Product['attributes']) => {
@@ -42,7 +43,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 <img
                     src={product.gallery[0]}
                     alt={product.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 {!product.inStock && (
                     <div className="absolute inset-0 flex items-center justify-center bg-white/50">
@@ -52,13 +53,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 {product.inStock && isHovered && (
                     <button
                         onClick={handleQuickShop}
-                        className="absolute bottom-4 right-4 bg-primary text-white pt-2.5 pb-1.5 pr-2.5 pl-1.5 rounded-full shadow-lg transition-all duration-300 z-10 hover:scale-110"
+                        className="absolute bottom-4 right-4 bg-primary text-white pt-3 pb-2 pr-3 pl-2 rounded-full shadow-lg transition-all duration-300 z-10 hover:scale-110"
                         data-testid="quick-shop-btn"
                     >
-
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1H5.4L7.68 12.39C7.77144 12.8504 8.02191 13.264 8.38755 13.5639C8.75318 13.8638 9.21301 14.0324 9.68 14H19.4C19.867 14.0324 20.3268 13.8638 20.6925 13.5639C21.0581 13.264 21.3086 12.8504 21.4 12.39L23 4H6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
+                        <FiShoppingCart size={22} color="white" />
                     </button>
                 )}
             </Link>

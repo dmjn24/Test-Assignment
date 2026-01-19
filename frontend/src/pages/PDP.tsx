@@ -5,6 +5,7 @@ import { useCart } from '../context/CartContext';
 import { useProduct } from '../hooks/useProduct';
 import Loader from '../components/common/Loader';
 import Price from '../components/common/Price';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 const PDP = () => {
     const { id } = useParams();
@@ -52,13 +53,17 @@ const PDP = () => {
                     <img src={product.gallery[currentImageIndex]} alt={product.name} className="w-full h-auto object-contain max-h-[600px]" />
 
                     <button
-                        className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/20 text-white p-2"
+                        className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/20 text-white p-2 rounded-sm hover:bg-black/40 transition-colors"
                         onClick={() => setCurrentImageIndex(prev => prev === 0 ? product.gallery.length - 1 : prev - 1)}
-                    >&lt;</button>
+                    >
+                        <FiChevronLeft size={24} />
+                    </button>
                     <button
-                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/20 text-white p-2"
+                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/20 text-white p-2 rounded-sm hover:bg-black/40 transition-colors"
                         onClick={() => setCurrentImageIndex(prev => prev === product.gallery.length - 1 ? 0 : prev + 1)}
-                    >&gt;</button>
+                    >
+                        <FiChevronRight size={24} />
+                    </button>
                 </div>
             </div>
 

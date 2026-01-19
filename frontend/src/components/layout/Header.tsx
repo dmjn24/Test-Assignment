@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import { useCategories } from '../../hooks/useCategories';
 import CartOverlay from '../cart/CartOverlay';
+import { FiShoppingCart } from 'react-icons/fi';
 
 const Header = () => {
     const { categories } = useCategories();
@@ -53,11 +54,9 @@ const Header = () => {
                     <button
                         onClick={() => setIsCartOpen(!isCartOpen)}
                         data-testid="cart-btn"
-                        className="p-2"
+                        className="p-2 cursor-pointer transition-colors group"
                     >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1H5.4L7.68 12.39C7.77144 12.8504 8.02191 13.264 8.38755 13.5639C8.75318 13.8638 9.21301 14.0324 9.68 14H19.4C19.867 14.0324 20.3268 13.8638 20.6925 13.5639C21.0581 13.264 21.3086 12.8504 21.4 12.39L23 4H6" stroke="#43464E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
+                        <FiShoppingCart size={24} className="text-[#43464E] group-hover:text-primary transition-colors" />
                         {totalItems > 0 && (
                             <span className="absolute top-0 right-0 bg-black text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center transform translate-x-1/2 -translate-y-1/2">
                                 {totalItems}
