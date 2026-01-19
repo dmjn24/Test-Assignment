@@ -81,7 +81,7 @@ try {
     }
     echo "Tables created.\n";
 
-    $jsonPath = __DIR__ . '/../../data.json';
+    $jsonPath = __DIR__ . '/../data.json';
     if (!file_exists($jsonPath)) {
         die("data.json not found at $jsonPath");
     }
