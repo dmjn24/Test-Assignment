@@ -80,7 +80,7 @@ class Types
         return self::$attributeSet ?: (self::$attributeSet = new ObjectType([
             'name' => 'AttributeSet',
             'fields' => [
-                'id' => Type::string(), // 'Size', 'Color'
+                'id' => Type::string(),
                 'name' => Type::string(),
                 'type' => Type::string(),
                 'items' => [
@@ -129,6 +129,7 @@ class Types
         return self::$category ?: (self::$category = new ObjectType([
             'name' => 'Category',
             'fields' => [
+                'id' => Type::string(),
                 'name' => Type::string(),
                 'products' => [
                     'type' => Type::listOf(self::product()),
@@ -157,7 +158,7 @@ class Types
             'fields' => [
                 'productId' => Type::nonNull(Type::string()),
                 'quantity' => Type::nonNull(Type::int()),
-                'options' => Type::string() // JSON string
+                'options' => Type::string(),
             ]
         ]));
     }
