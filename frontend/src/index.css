@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #5ECE7B;
+  --color-text-black: #1D1F22;
+}
+
+@layer base {
+  body {
+    font-family: 'Raleway', sans-serif;
+    color: var(--color-text-black);
+  }
+}
