@@ -1,0 +1,58 @@
+{
+  "hash": "42ef5b9b",
+  "configHash": "32bf27df",
+  "lockfileHash": "f7d6ab53",
+  "browserHash": "84bcec1d",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "61b63b0d",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "a51615fa",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "c30bfafc",
+      "needsInterop": true
+    },
+    "@apollo/client": {
+      "src": "../../node_modules/@apollo/client/index.js",
+      "file": "@apollo_client.js",
+      "fileHash": "0c595bc1",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "11eb3a0d",
+      "needsInterop": false
+    },
+    "react-icons/fi": {
+      "src": "../../node_modules/react-icons/fi/index.mjs",
+      "file": "react-icons_fi.js",
+      "fileHash": "dc8b6ba5",
+      "needsInterop": false
+    },
+    "html-react-parser": {
+      "src": "../../node_modules/html-react-parser/esm/index.mjs",
+      "file": "html-react-parser.js",
+      "fileHash": "f601f0d2",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-3MDXY62U": {
+      "file": "chunk-3MDXY62U.js"
+    },
+    "chunk-YFGLSBDS": {
+      "file": "chunk-YFGLSBDS.js"
+    }
+  }
+}
