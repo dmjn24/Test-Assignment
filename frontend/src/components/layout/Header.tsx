@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import { useCategories } from '../../hooks/useCategories';
@@ -6,9 +5,13 @@ import CartOverlay from '../cart/CartOverlay';
 import { FiShoppingCart } from 'react-icons/fi';
 
 const Header = () => {
-    const { categories } = useCategories();
-    const { totalItems } = useCart();
-    const [isCartOpen, setIsCartOpen] = useState(false);
+    const { categories: fetchedCategories } = useCategories();
+    const categories = fetchedCategories.length > 0 ? fetchedCategories : [
+        { name: 'all' },
+        { name: 'clothes' },
+        { name: 'tech' }
+    ];
+    const { totalItems, isCartOpen, setIsCartOpen } = useCart();
     const location = useLocation();
 
     return (
@@ -71,7 +74,10 @@ const Header = () => {
                                 onClick={() => setIsCartOpen(false)}
                             ></div>
 
-                            <div className="absolute right-0 top-full pt-8 w-80 bg-white shadow-xl z-50 px-4 py-6 max-h-[80vh] overflow-y-auto">
+                            <div
+                                data-testid="cart-overlay"
+                                className="absolute right-0 top-full pt-8 w-80 bg-white shadow-xl z-50 px-4 py-6 max-h-[80vh] overflow-y-auto"
+                            >
                                 <CartOverlay close={() => setIsCartOpen(false)} />
                             </div>
                         </>

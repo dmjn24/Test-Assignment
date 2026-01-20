@@ -63,7 +63,7 @@ const CartOverlay: React.FC<{ close: () => void }> = ({ close }) => {
                                 <div className="flex flex-col gap-2">
                                     {item.product.attributes.map((attr: any) => {
                                         const selectedVal = item.options[attr.id];
-                                        const attrName = attr.name ? attr.name.toLowerCase().replace(/ /g, '-') : 'attr';
+                                        const attrName = attr.name ? attr.name.trim().toLowerCase().replace(/ /g, '-') : 'attr';
 
                                         return (
                                             <div key={attr.id} className="text-sm" data-testid={`cart-item-attribute-${attrName}`}>
@@ -71,10 +71,10 @@ const CartOverlay: React.FC<{ close: () => void }> = ({ close }) => {
                                                 <div className="flex flex-wrap gap-2">
                                                     {attr.items.map((opt: any) => {
                                                         const isSelected = opt.id === selectedVal;
-                                                        const optName = opt.displayValue ? opt.displayValue.toLowerCase().replace(/ /g, '-') : opt.value ? opt.value.toLowerCase().replace(/ /g, '-') : 'opt';
+                                                        const optValue = opt.displayValue || opt.value || 'opt';
                                                         const testId = isSelected
-                                                            ? `cart-item-attribute-${attrName}-${optName}-selected`
-                                                            : `cart-item-attribute-${attrName}-${optName}`;
+                                                            ? `cart-item-attribute-${attrName}-${optValue}-selected`
+                                                            : `cart-item-attribute-${attrName}-${optValue}`;
 
                                                         if (attr.type === 'swatch') {
                                                             return (

@@ -86,6 +86,7 @@ const PDP = () => {
                                             className={`w-8 h-8 border ${isSelected ? 'ring-2 ring-primary ring-offset-1' : 'border-gray-300'}`}
                                             style={{ backgroundColor: item.value }}
                                             title={item.displayValue}
+                                            data-testid={`product-attribute-${attr.name.trim().toLowerCase().replace(/ /g, '-')}-${item.displayValue}`}
                                         />
                                     );
                                 }
@@ -94,6 +95,7 @@ const PDP = () => {
                                         key={item.id}
                                         onClick={() => handleOptionSelect(attr.id, item.id)}
                                         className={`h-10 w-16 border ${isSelected ? 'bg-black text-white' : 'bg-white text-black border-black'} font-medium`}
+                                        data-testid={`product-attribute-${attr.name.trim().toLowerCase().replace(/ /g, '-')}-${item.displayValue}`}
                                     >
                                         {item.value}
                                     </button>

@@ -9,11 +9,16 @@ class AttributeResolver
 {
     public function resolveItems($root)
     {
+        if (isset($root['items'])) {
+            return $root['items'];
+        }
+
         if ($root['type'] === 'text') {
             $model = new TextAttribute();
         } else {
             $model = new SwatchAttribute();
         }
-        return $model->getItems($root['id']);
+
+        return [];
     }
 }

@@ -3,7 +3,6 @@
 namespace App\GraphQL\Resolvers;
 
 use App\Model\Product\StandardProduct;
-use App\Model\Attribute\TextAttribute;
 
 class ProductResolver
 {
@@ -26,9 +25,8 @@ class ProductResolver
 
     public function resolveAttributes($product)
     {
-
-        $model = new TextAttribute();
-        return $model->getByProduct($product['id']);
+        $model = new StandardProduct();
+        return $model->getAttributes($product['id']);
     }
 
     public function resolvePrices($product)

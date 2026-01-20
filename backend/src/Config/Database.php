@@ -9,27 +9,27 @@ class Database
 {
     private static ?PDO $instance = null;
 
-    private function __construct()
-    {
-    }
-
     public static function getConnection(): PDO
     {
         if (self::$instance === null) {
-            try {
-
-                $host = $_ENV['DB_HOST'] ?? '127.0.0.1';
-                $name = $_ENV['DB_NAME'] ?? 'scandiweb';
-                $user = $_ENV['DB_USER'] ?? 'root';
-                $pass = $_ENV['DB_PASS'] ?? '';
-
-                self::$instance = new PDO("mysql:host=$host;dbname=$name;charset=utf8", $user, $pass);
-                self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                self::$instance->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                die("Database Connection Failed: " . $e->getMessage());
-            }
+            self::connect();
         }
         return self::$instance;
+    }
+
+    private static function connect(): void
+    {
+        try {
+            $host = 'sql103.infinityfree.com';
+            $name = 'if0_40949008_scandiweb';
+            $user = 'if0_40949008';
+            $pass = '7E1Maj7jTbHjw0';
+
+            self::$instance = new PDO("mysql:host=$host;dbname=$name;charset=utf8", $user, $pass);
+            self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            self::$instance->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die("Database Connection Failed: " . $e->getMessage() . " (" . $e->getCode() . ")");
+        }
     }
 }

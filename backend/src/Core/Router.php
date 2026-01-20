@@ -11,7 +11,7 @@ class Router
     public static function dispatch()
     {
         $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) {
-            $r->post('/graphql', [GraphQL::class, 'handle']);
+            $r->addRoute(['GET', 'POST'], '/graphql', [GraphQL::class, 'handle']);
         });
 
         $uri = self::getUri();
@@ -25,6 +25,14 @@ class Router
     private static function getUri()
     {
         $uri = $_SERVER['REQUEST_URI'];
+
+        $scriptName = $_SERVER['SCRIPT_NAME'];
+        $basePath = dirname($scriptName);
+
+        if ($basePath !== '/' && strpos($uri, $basePath) === 0) {
+            $uri = substr($uri, strlen($basePath));
+        }
+
         if (false !== $pos = strpos($uri, '?')) {
             $uri = substr($uri, 0, $pos);
         }
