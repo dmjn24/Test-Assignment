@@ -37,20 +37,20 @@ const PDP = () => {
 
             <div className="w-full md:w-3/4 flex gap-4" data-testid="product-gallery">
 
-                <div className="flex flex-col gap-4 w-20">
+                <div className="flex flex-col gap-4 w-24 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
                     {product.gallery.map((img: string, idx: number) => (
                         <div
                             key={idx}
                             onClick={() => setCurrentImageIndex(idx)}
-                            className="cursor-pointer"
+                            className={`cursor-pointer border-2 transition-all duration-200 ${currentImageIndex === idx ? 'border-primary shadow-sm' : 'border-transparent hover:border-gray-200'}`}
                         >
-                            <img src={img} alt="" className="w-full h-20 object-cover" />
+                            <img src={img} alt="" className="w-full h-20 object-contain bg-white" />
                         </div>
                     ))}
                 </div>
 
-                <div className="flex-1 relative aspect-auto">
-                    <img src={product.gallery[currentImageIndex]} alt={product.name} className="w-full h-auto object-contain max-h-[600px]" />
+                <div className="flex-1 relative h-[600px] bg-white flex items-center justify-center overflow-hidden">
+                    <img src={product.gallery[currentImageIndex]} alt={product.name} className="max-w-full max-h-full object-contain" />
 
                     <button
                         className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/20 text-white p-2 rounded-sm hover:bg-black/40 transition-colors"
